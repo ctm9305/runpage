@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청풍러닝 기록</title>
+    <!-- 부트스트랩 CSS CDN 추가 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* 전체 화면을 채우도록 설정 */
+            background-color: #f4f4f4; /* 페이지 전체 배경색 */
+            color: black;
+        }
+
+        header {
+            padding: 70px;
+            font-size: 4em;
+            color: white;
+            background: url('https://blog.kakaocdn.net/dn/3ffUO/btsg25ldwYb/l7IvZkkh6FllI6Pjk0lscK/img.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .records-container {
+            height: calc(100% - 80px); /* 헤더를 제외한 나머지 부분이 컨테이너를 차지하도록 설정 */
+            overflow: hidden;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .record {
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.05);
+            margin: 10px 0;
+            font-size: 1.25em;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* 텍스트를 가운데 정렬 */
+        }
+
+        .record:nth-child(odd) {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center text-white">
+        청풍러닝 기록
+    </header>
+
+    <div class="container records-container">
+        <div class="records" id="records">
+            <div class="record">이아론 : 13.91</div>
+            <div class="record">정우율 : 10.03</div>
+            <div class="record">황유현 : 9.18</div>
+            <div class="record">권영준 : 8.00</div>
+            <div class="record">심우섭 : 8.61</div>
+            <div class="record">이동걸 : 8.49</div>
+            <div class="record">이윤호 : 12.03</div>
+            <div class="record">조산들 : 8.92</div>
+            <div class="record">권범준 : 12.35</div>
+            <div class="record">권지훈 : 7.77</div>
+            <div class="record">박태겸 : 8.09</div>
+            <div class="record">이믿음 : 10.35</div>
+            <div class="record">김주성 : 7.87</div>
+            <div class="record">남재현 : 9.53</div>
+            <div class="record">박보겸 : 8.17</div>
+            <div class="record">3️⃣ 박상희 : 7.73 3️⃣</div>
+            <div class="record">1️⃣ 이건호 : 6.69 1️⃣</div>
+            <div class="record">2️⃣ 정은총 : 7.04 2️⃣</div>
+            <div class="record">조산울 : 8.48</div>
+            <div class="record">심송연 : 10.83</div>
+            <div class="record">강민경 : 8.94</div>
+            <div class="record">김연빈 : 11.60</div>
+            <div class="record">김하예 : 8.56</div>
+            <div class="record">김현서 : 7.96</div>
+            <div class="record">백승연 : 8.60</div>
+            <div class="record">최지유 : 8.97</div>
+            <div class="record">강소율 : 8.91</div>
+            <div class="record">김소예 : 8.19</div>
+            <div class="record">남수현 : 7.79</div>
+            <div class="record">권지수 : 8.19</div>
+            <div class="record">👽 최태민 : 1.35 👽</div>
+            <div class="record">2주 동안 잘했습니다 😊</div>
+            <div class="record">목요일 대회에서 최선을 다해요🔥</div>
+        </div>
+    </div>
+
+    <!-- 부트스트랩 JS, Popper.js, jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let container = document.querySelector('.records-container');
+        let records = document.getElementById('records');
+        let recordHeight = document.querySelector('.record').offsetHeight;
+        let totalHeight = records.offsetHeight;
+        let scrollAmount = 0;
+
+        // 스크롤 동작을 담당하는 함수
+        function scrollRecords() {
+            scrollAmount += 1;
+
+            // 현재 스크롤이 컨테이너 높이 이상일 경우, 다시 처음으로 돌아감
+            if (scrollAmount >= records.scrollHeight - container.clientHeight) {
+                scrollAmount = 0;
+            }
+            records.style.transform = `translateY(-${scrollAmount}px)`;
+        }
+
+        // 일정 시간마다 스크롤을 이동시킴
+        setInterval(scrollRecords, 50);  // 속도를 조정할 수 있습니다
+    </script>
+</body>
+</html>
